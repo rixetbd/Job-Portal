@@ -1,0 +1,360 @@
+
+/*---------------------------------------------
+	21.0 Employer Style
+---------------------------------------------*/
+
+.employer-container {
+	@extend .job-listing-container;
+}
+
+.filtered-employer-wrapper {
+	@extend .filtered-job-listing-wrapper;
+}
+
+.employer-view-controller-wrapper {
+	@extend .job-view-controller-wrapper;
+}
+
+.employer-filter-result {
+	@extend .job-filter-result;
+}
+
+.employer-filter-wrapper {
+	@extend .job-filter-wrapper;
+}
+
+.employer-view-controller {
+	@extend .job-view-controller;
+}
+
+.employer-view-filter {
+	@extend .job-view-filter;
+}
+
+.employer-filter-dropdown {
+	@extend .job-filter-dropdown;
+}
+
+.employer-filter {
+	@extend .job-filter;
+}
+
+.employer-type {
+	@extend .job-type;
+}
+
+.employer-filter-result.grid {
+	position: relative;
+	border-top: 1px solid rgba($black, .08);
+	&:before {
+		position: absolute;
+		top: 30px;
+		left: 50%;
+		bottom: 0;
+		width: 1px;
+		background: rgba($black, .08);
+		content: '';
+	}
+}
+
+.employer {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 30px 20px;
+	border-radius: 3px;
+	transition: all .3s ease;
+	border-bottom: 1px solid rgba($black, .08);
+	.thumb {
+		width: 80px;
+    height: 80px;
+    background: #f9f9f9;
+    border-radius: 3px;
+    border: 1px solid rgba($black, 0.05);
+    a {
+    	height: 80px;
+    	width: 80px;
+    	position: relative;
+    	img {
+    		position: absolute;
+    		top: 50%;
+    		left: 50%;
+    		transform: translate(-50%, -50%);
+    	}
+    }
+	}
+	.thumb+.body {
+		padding-left: 20px;
+	}
+	.body {
+		display: flex;
+		justify-content: space-between;
+		width: calc(100% - 80px);
+		align-items: center;
+		.content {
+			h4 {
+				font-size: 1.8rem;
+				font-family: $headerFont;
+				font-weight: 500;
+				margin-bottom: 12px;
+				&:hover {
+					color: $primaryColor;
+				}
+			}
+			.info {
+				span {
+					color: $fontColor;
+					margin-right: 15px;
+					&.work-post {
+						svg {
+							color: rgba($primaryColor, .4);
+						}
+					}
+					&.location {
+						svg {
+							color: $fontColor;
+						}
+					}
+					svg {
+						height: 15px;
+						color: #aaa;
+					}
+				}
+			}
+		}
+		.button-area {
+			a {
+				font-size: 1.4rem;
+				font-family: $headerFont;
+				font-weight: 600;
+				padding: 8px 15px;
+				color: $primaryColor;
+				border-radius: 3px;
+				background: rgba($primaryColor, .15);
+			}
+		}
+	}
+	&:hover {
+		border-bottom-color: transparent;
+	  box-shadow: 0px 10px 20px 0px rgba($black, 0.05);
+	  .body {
+	  	.button-area {
+	  		a {
+	  			background: $primaryColor;
+	  			border-color: $primaryColor;
+	  			color: $white;
+	  		}
+	  	}
+	  }
+	}
+}
+
+.employer.half-grid {
+	width: calc(50% - 30px);
+	.body {
+		display: block;
+		margin-top: 0;
+		.content {
+			span {
+				display: inline-block;
+				margin-bottom: 8px;
+			}
+		}
+		.button-area {
+			margin-top: 10px;
+		}
+	}
+}
+
+
+/*---------------------------------------------
+	Employer Details
+---------------------------------------------*/
+
+.company-details {
+	background: $white;
+	padding: 30px;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.03);
+	.title-and-info {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-bottom: 30px;
+		border-bottom: 1px solid rgba($black, .08);
+		.title {
+			display: flex;
+			align-items: center;
+			.thumb {
+				width: 100px;
+				height: 100px;
+				background: #f9f9f9;
+				border: 1px solid rgba($black, .05);
+				border-radius: 3px;
+				overflow: hidden;
+				position: relative;
+				img {
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+				}
+			}
+			.thumb + .title-body {
+				padding-left: 20px;
+			}
+			.title-body {
+				h4 {
+					font-size: 2.6rem;
+					font-weight: 600;
+					padding-bottom: 15px;
+				}
+				.info {
+					span {
+						font-size: 1.4rem;
+						font-weight: 400;
+						font-family: $bodyFont;
+						margin-right: 15px;
+						color: $fontColor;
+						svg {
+							height: 15px;
+							margin-right: 5px;
+							color: #aaa;
+						}
+					}
+				}
+			}
+		}
+		.download-resume {
+			a {
+				padding: 15px 30px;
+				border-radius: 3px;
+				background: $primaryColor;
+				color: $white;
+				font-size: 1.4rem;
+				font-family: $headerFont;
+				font-weight: 600;
+				svg {
+					height: 18px;
+					margin-left: 10px;
+				}
+				&:hover {
+					color: $white;
+					background: $primaryColor;
+				}
+			}
+			.save-btn {
+		    text-align: center;
+		    background: transparent;
+		    margin-right: 10px;
+		    color: $fontColor;
+		    border: 1px solid rgba($black, 0.05);
+		    background-image: linear-gradient(to left, rgba(247, 249, 252, 0), #f7f9fc);
+				svg {
+					margin-left: 0;
+					margin-right: 7px;
+				}
+				&:hover {
+					background: transparent;
+  		    background-image: linear-gradient(to left, rgba(247, 249, 252, 0), #f7f9fc);
+				  border-color: #ff8fa6;
+    			color: #ff8fa6;
+				}
+			}
+		}
+	}
+}
+
+.open-job .job-list {
+	padding: 30px 20px;
+	.body {
+		padding-left: 0;
+		width: 100%;
+		.content {
+			h4 {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+
+.company-details .details-information {
+	border-bottom: 0;
+}
+
+.information-and-contact {
+	.information {
+		ul li a {
+			color: $primaryColor;
+		}
+	}
+}
+
+.company-details {
+	.job-location {
+		background-image: linear-gradient(to left, rgba($aliceBlue, .0), rgba($aliceBlue, 1));
+		border: 1px solid rgba($black, .05);
+		border-radius: 3px;
+		margin-top: 50px;
+		padding: 30px;
+		h4 {
+			font-size: 1.5rem;
+			font-weight: 500;
+			margin-bottom: 20px;
+		}
+		.cp-map {
+			height: 250px;
+			border: 1px solid rgba($black, .05);
+		}
+	}
+}
+
+@media all and (max-width: 991px) {
+	.company-details .title-and-info {
+		display: block;
+		.download-resume {
+			margin-top: 20px;
+			a {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}
+
+@media all and (max-width: 767px) {
+	.employer {
+		.body {
+			display: block;
+			.button-area {
+				margin-top: 20px;
+			}
+		}
+	}
+	.company-details {
+		padding: 20px;
+	}
+}
+
+@media all and (max-width: 439px) {
+	.employer {
+		display: block;
+		.thumb + .body {
+			padding-left: 0;
+			margin-top: 15px;
+		}
+		.body {
+			width: 100%;
+		}
+	}
+	.company-details .title-and-info .title {
+		display: block;
+		.thumb + .title-body {
+			padding-left: 0;
+		}
+	}
+	.information {
+		padding: 20px;
+		h4 {
+			margin-bottom: 20px;
+		}
+	}
+}
+

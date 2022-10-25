@@ -1,0 +1,34 @@
+
+/*---------------------------------------------
+	13.0 Animated-number Style
+---------------------------------------------*/
+
+.fact-bg {
+	background: url(../images/bg/fact-bg.jpg) no-repeat center center;
+	background-size: cover;
+}
+
+.fact {
+	text-align: center;
+	color: $white;
+	margin-bottom: 30px;
+	.fact-icon {
+		svg {
+			height: 35px;
+		}
+	}
+	.fact-number {
+		font-size: 30px;
+		margin-top: 20px;
+		font-family: $headerFont;
+		font-weight: 500;
+		margin-bottom: 0;
+		line-height: 1;
+	}
+	.fact-name {
+		font-family: $headerFont;
+		font-weight: 400;
+		font-size: 1.5rem;
+		margin-top: 0;
+	}
+}

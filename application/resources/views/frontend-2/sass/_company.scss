@@ -1,0 +1,103 @@
+
+
+/*---------------------------------------------
+	08.0 Company Style
+---------------------------------------------*/
+
+.company-wrap {
+	border-radius: 3px;
+	border: 1px solid rgba($black, .05);
+	background-image: linear-gradient(to top, $white, rgba($primaryColor, .03));
+	padding: 30px 10px;
+	margin-bottom: 30px;
+	text-align: center;
+	transition: all .3s ease;
+	.thumb {
+		border-bottom: 1px solid rgba($black, .08);
+		padding-bottom: 30px;
+		max-width: 120px;
+		margin: 0 auto 20px;
+	}
+	.body {
+		h4 {
+			font-size: 1.8rem;
+			margin-bottom: 5px;
+			font-weight: 500;
+		}
+		span {
+			display: block;
+			font-size: 1.4rem;
+			font-family: $bodyFont;
+			font-weight: 400;
+			color: $fontColor;
+		}
+		.button {
+			background: rgba($primaryColor, .1);
+			color: $primaryColor;
+			border-radius: 3px;
+			padding: 8px 20px;
+			font-size: 1.4rem;
+			font-weight: 500;
+			font-family: $headerFont;
+			margin-top: 20px;
+		}
+	}
+	&:hover {
+		box-shadow: 0px 10px 20px 0px rgba($black, 0.05);
+		background: $white;
+		.body {
+			h4 {
+				color: $primaryColor;
+			}
+			.button {
+				background: $primaryColor;
+				color: $white;
+			}
+		}
+	}
+}
+
+.company-carousel {
+	position: relative;
+	.owl-nav {
+		button.owl-next,
+		button.owl-prev {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size: 1.8rem;
+			outline: none;
+			color: rgba($primaryColor, .4);
+			transition: all .3s ease;
+			&:hover {
+				color: $primaryColor;
+			}
+		}
+		.owl-prev {
+			left: -30px;
+		}
+		.owl-next {
+			right: -30px;
+		}
+	}
+}
+
+@media all and (max-width: 575px) {
+	.company-carousel {
+		padding-bottom: 40px;
+		.owl-nav {
+			button.owl-next,
+			button.owl-prev {
+				top: auto;
+				bottom: -25px;
+				left: 50%;
+			}
+			button.owl-prev {
+				margin-left: -23px;
+			}
+			button.owl-next {
+				margin-right: -15px;
+			}
+		}
+	}
+}

@@ -1,0 +1,41 @@
+/*---------------------------------------------
+	23.0 Working Process Style
+---------------------------------------------*/
+
+.how-it-work {
+	padding: 60px 30px;
+}
+
+.working-process {
+	position: relative;
+	overflow: hidden;
+	&:before {
+		position: absolute;
+		content: url(../images/dot.png);
+		top: 35px;
+		left: 13px;
+	}
+	h3 {
+		font-size: 1.8rem;
+		padding-bottom: 15px;
+		span {
+			color: $primaryColor;
+			margin-right: 10px;
+		}
+	}
+	p {
+		padding-left: 47px;
+		color: $fontColor;
+	}
+}
+
+.working-process + .working-process {
+	margin-top: 60px;
+}
+
+
+@media all and (max-width: 991px) {
+	.working-process-thumb {
+		margin-bottom: 50px;
+	}
+}

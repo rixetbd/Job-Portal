@@ -1,0 +1,52 @@
+
+/*---------------------------------------------
+	09.0 App Style
+---------------------------------------------*/
+
+.app-download-bg {
+	background: url(../images/bg/app-bg.jpg) no-repeat left;
+	background-size: cover;
+}
+
+.app-download {
+	h2 {
+		font-size: 2.6rem;
+		font-weight: 500;
+		color: $white;
+		margin-bottom: 20px;
+	}
+	p {
+		max-width: 380px;
+		color: $white;
+	}
+	.app-download-button {
+		// padding-top: 10px;
+		a {
+			border: 2px solid rgba($white, .2);
+			border-radius: 3px;
+			padding: 12px 15px 12px 45px;
+			margin: 0 5px;
+			font-size: 1.5rem;
+			font-family: $headerFont;
+			font-weight: 500;
+			color: $white;
+			position: relative;
+			margin-top: 20px;
+			&:before {
+				position: absolute;
+				top: 11px;
+				left: 15px;
+				content: '';
+			}
+			&:hover {
+				border-color: $white;
+			}
+		}
+		.apple-app:before  {
+			content: url(../images/apple-white.png);
+		}
+		.android-app:before  {
+			content: url(../images/google-white.png);
+		}
+	}
+}

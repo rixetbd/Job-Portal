@@ -1,0 +1,3 @@
+Database Name = rixetbdcom_wantjob
+Database User = rixetbdcom_user_wantjob
+Database Password = wantjob@2022

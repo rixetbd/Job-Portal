@@ -1,0 +1,144 @@
+
+/*---------------------------------------------
+	26.0 Contact Style
+---------------------------------------------*/
+
+.contact-block {
+	padding: 60px 30px 30px;
+	background: $white;
+ 	box-shadow: 0px 5px 20px 0px rgba($black, 0.03);
+}
+
+.contact-address {
+	border: 1px solid rgba($black, .05);
+	border-radius: 3px;
+	padding: 30px;
+	background-image: linear-gradient(to left, $white, $aliceBlue);
+	h4 {
+		font-size: 1.5rem;
+		font-family: $headerFont;
+		font-weight: 600;
+		padding-bottom: 10px;
+		border-bottom: 1px solid rgba($black, .05);
+		margin-bottom: 20px;
+		color: $blackRussianLite;
+	}
+	ul {
+		padding: 0;
+		margin: 0;
+		list-style: none;
+		li {
+			padding-left: 25px;
+			position: relative;
+			color: $fontColor;
+			svg {
+				position: absolute;
+				top: 5px;
+				left: 0;
+				height: 15px;
+				width: 15px;
+				color: #aaa;
+			}
+		}
+		li + li {
+			margin-top: 15px;
+		}
+	}
+}
+
+.contact-form {
+	h4 {
+		font-size: 1.8rem;
+		font-family: $headerFont;
+		font-weight: 600;
+		color: $blackRussianLite;
+		margin-bottom: 20px;
+	}
+	form {
+		.form-group {
+			margin-bottom: 30px;
+			.form-control {
+				height: 50px;
+				border: 0;
+				border-radius: 0;
+				border-bottom: 1px solid rgba($black, .08);
+				font-size: 1.4rem;
+				outline: none;
+				box-shadow: none;
+				&:focus {
+					border-bottom-color: $primaryColor;
+				}
+			}
+			textarea.form-control {
+				height: 100px;
+			}
+		}
+		.button {
+			background: $primaryColor;
+			border-radius: 3px;
+			border: 0;
+			color: $white;
+			padding: 10px 30px;
+			font-family: $headerFont;
+			font-weight: 600;
+			font-size: 1.4rem;
+		}
+	}
+}
+
+.contact-form .input-success {
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+.contact-form .input-error {
+    position: absolute;
+    top: 100%;
+    left: 0;
+}
+
+.input-success {
+    border-radius: 3px;
+    color: #ffffff;
+    padding: 5px 15px !important;
+    margin-bottom: 0;
+    margin-top: 10px;
+    display: none;
+}
+
+.input-error {
+    border-radius: 3px;
+    color: #ffffff;
+    padding: 5px 15px !important;
+    margin-bottom: 0;
+    margin-top: 10px;
+    display: none;
+}
+
+.input-success {
+    background-color: #27ae60;
+}
+
+.input-error {
+    background-color: #e74c3c;
+}
+
+.contact-map {
+	margin-top: 60px;
+	.cp-map {
+		height: 300px;
+	}
+}
+
+
+@media all and (max-width: 991px) {
+	.contact-form {
+		margin-top: 60px;
+	}
+}
+
+@media all and (max-width: 767px) {
+	.contact-block {
+		padding: 60px 20px 30px;
+	}
+}

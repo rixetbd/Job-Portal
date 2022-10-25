@@ -1,0 +1,60 @@
+
+/*---------------------------------------------
+	11.0 Header Style
+---------------------------------------------*/
+
+.section-header {
+	text-align: center;
+	margin-bottom: 50px;
+	h2 {
+		font-family: #headerFont;
+		font-weight: 600;
+		font-size: 2.8rem;
+	}
+	p {
+		font-size: 1.6rem;
+		margin-top: 10px;
+	}
+}
+
+.section-header.section-header-center {
+	h6 {
+		font-size: 1.8rem;
+		font-family: $headerFont;
+		color: $fontColor;
+		font-weight: 600;
+		margin-bottom: 10px;
+	}
+	h2 {
+		font-size: 2.6rem;
+		color: $blackRussian;
+		font-weight: 600;
+	}
+}
+
+.section-header.section-header-2 {
+	text-align: left;
+}
+
+
+.section-header-with-right-content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	.header-right {
+		font-size: 1.5;
+		font-family: $headerFont;
+		font-weight: 500;
+		color: $primaryColor;
+	}
+}
+
+
+@media all and (max-width: 479px) {
+	.section-header-with-right-content {
+		display: block;
+		.header-right {
+			margin-top: 10px;
+		}
+	}
+}

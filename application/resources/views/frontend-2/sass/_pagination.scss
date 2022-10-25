@@ -1,0 +1,60 @@
+
+/*----------------------------------------------
+  19.0 Pagination Style
+-----------------------------------------------*/
+
+.pagination-list .pagination {
+  padding: 40px 0 30px;
+  &.navigation {
+    margin-top: 10px;
+    &.padding-top-60 {
+      margin-top: 0;
+    }
+  }
+  margin: 0;
+  display: block;
+  font-size: 0;
+  .nav-links .page-numbers {
+    height: 35px;
+    width: 35px;
+    line-height: 35px;
+    border-radius: 3px;
+    text-align: center;
+    font-size: 1.5rem;
+    display: inline-block;
+    margin: 0 5px;
+    font-weight: 400;
+    color: $fontColor;
+    -webkit-transition: all .3s ease;
+    transition: all .3s ease;
+    position: relative;
+    &:hover {
+      color: $primaryColor;
+    }
+    &:last-child:before {
+      border-right: 1px solid rgba($black, 0.08);
+    }
+    &.current {
+      color: $white;
+      background: $primaryColor;
+      border-color: $primaryColor;
+    }
+  }
+  .next,
+  .prev {
+    border: 1px solid rgba($black, .08);
+    background: $aliceBlueLite;
+  }
+}
+
+
+
+
+@media all and (max-width: 767px) {
+  .pagination-list .pagination .nav-links .page-numbers {
+    height: 32px;
+    width: 32px;
+    line-height: 32px;
+    margin: 0 3px;
+  }
+}

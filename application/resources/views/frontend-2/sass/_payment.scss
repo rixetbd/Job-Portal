@@ -1,0 +1,657 @@
+
+/*---------------------------------------------
+	27.0 Payment Style
+---------------------------------------------*/
+
+.block-wrapper {
+	background: $white;
+	padding: 60px 30px;
+	box-shadow: 0px 5px 20px 0px rgba($black, 0.03);
+}
+
+.checkout-form {
+	label {
+		font-family: $headerFont;
+		// font-weight: 400;
+		font-size: 1.4rem;
+		color: $fontColor;
+	}
+	.package-select {
+		display: block;
+		padding-bottom: 10px;
+		.package-select-inputs {
+			width: 100%;
+			.form-group {
+				margin-bottom: 20px;
+			}
+		}
+	}
+	.payment-method {
+		padding-top: 60px;
+		padding-bottom: 20px;	
+		a {
+			padding: 5px 15px;
+			border: 1px solid rgba($black, .08);
+			border-radius: 3px;
+			background: $aliceBlue;
+			color: $fontColor;
+			margin-right: 10px;
+			margin-bottom: 10px;
+			i {
+				margin-right: 7px;
+			}
+			&.active,
+			&:hover {
+				background: $primaryColor;
+				color: $white;
+				border-color: $primaryColor;
+			}
+		}
+	}
+	.form-group {
+		margin-bottom: 30px;
+		.form-control {
+			height: 50px;
+			border: 0;
+			border-bottom: 1px solid rgba($black, .08);
+			border-radius: 0;
+			font-size: 1.4rem;
+			outline: none;
+			box-shadow: none;
+			&:focus {
+				border-bottom-color: $primaryColor;
+			}
+		}
+	}
+	.terms {
+		label {
+			color: $fontColor;
+			a {
+				color: $primaryColor;
+				text-decoration: underline;
+			}
+		}
+	}
+	.button {
+		background: $primaryColor;
+		color: $white;
+		padding: 10px 30px;
+		font-family: $headerFont;
+		font-weight: 500;
+		font-size: 1.4rem;
+		border: 0;
+		border-radius: 3px;
+	}
+}
+
+.payment-summery {
+	padding: 30px;
+	border: 1px solid rgba($black, .08);
+	border-radius: 3px;
+	background-image: linear-gradient(to left, $white, $aliceBlue);
+	h4 {
+		font-size: 1.5rem;
+		font-family: $headerFont;
+		font-weight: 600;
+		padding-bottom: 20px;
+		border-bottom: 1px solid rgba($black, .08);
+		margin-bottom: 30px;
+	}
+	ul {
+		padding: 0;
+		padding-bottom: 30px;
+		border-bottom: 1px solid rgba($black, .08);
+		margin: 0;
+		list-style: none;
+		li {
+			color: $fontColor;
+			font-size: 1.4rem;
+			display: flex;
+			justify-content: space-between;
+			.amount {
+				font-family: $headerFont;
+				font-weight: 500;
+			}
+		}
+		li + li {
+			margin-top: 10px;
+		}
+	}
+	.total-amount {
+		display: flex;
+		color: $fontColor;
+		font-size: 1.4rem;
+		padding-top: 20px;
+		justify-content: space-between;
+		.amount {
+			font-family: $headerFont;
+			font-weight: 500;
+			color: $primaryColor;
+		}
+	}
+}
+
+.payment-result {
+	text-align: center;
+	color: $fontColor;
+	.icon {
+		height: 100px;
+		width: 100px;
+		background: $primaryColor;
+		border-radius: 50%;
+		text-align: center;
+		line-height: 100px;
+		margin: 0 auto;
+		svg {
+			color: $white;
+			height: 40px;
+			width: 40px;
+		}
+	}
+	h3 {
+		font-size: 2.6rem;
+		margin-top: 30px;
+		margin-bottom: 10px;
+		color: $blackRussian;
+		span {
+			color: $primaryColor;
+			text-decoration: underline;
+		}
+	}
+	> p {
+		font-size: 1.8rem;
+		font-family: $headerFont;
+		font-weight: 400;
+		color: $fontColor;
+	}
+	.result {
+		margin-top: 60px;
+		margin-bottom: 120px;
+		border: 1px solid rgba($primaryColor, .15);
+		border-radius: 3px;
+		background: #f4f8ff;
+		padding: 15px 20px;
+		display: inline-block;
+	}
+	.view-invoice {
+		background: #e9f0fe;
+		border: 0;
+		border-radius: 3px;
+		font-family: $headerFont;
+		font-weight: 500;
+		font-size: 1.4rem;
+		color: $primaryColor;
+		padding: 14px 30px;
+		&:hover {
+			background: $primaryColor;
+			color: $white;
+		}
+	}
+}
+
+.invoice {
+	background: $white;
+	padding: 60px 30px;
+  box-shadow: 0px 5px 20px 0px rgba($black, 0.03);
+}
+
+.invoice-header {
+	display: flex;
+	margin-bottom: 60px;
+	align-items: center;
+	.logo-area {
+		background: $primaryColor;
+		flex: 1;
+		padding: 10px 0;
+		position: relative;
+		margin-right: 15px;
+		&:before {
+			position: absolute;
+			content: '';
+			top: 0;
+			left: -30px;
+			bottom: 0;
+			width: 30px;
+			background: $primaryColor;
+		}
+	}
+	.title {
+		flex: 1;
+		margin-left: 15px;
+		display: flex;
+		justify-content: space-between;
+		span {
+			font-size: 6.0rem;
+			line-height: 1;	
+			font-family: $bodyFont;
+			text-transform: uppercase;
+			font-weight: 100;
+			color: $fontColor;
+		}
+	}
+}
+
+.invoice-info {
+	display: flex;
+	justify-content: space-between;
+	.left-info {
+		h6 {
+			font-size: 1.8rem;
+			font-weight: 500;
+			margin-bottom: 15px;
+		}
+		.name {
+			font-family: $headerFont;
+			font-weight: 500;
+			margin-bottom: 10px;
+		}
+		p {
+			max-width: 250px;
+		}
+	}
+	.right-info {
+		ul {
+			padding: 0;
+			margin: 0;
+			min-width: 170px;
+			list-style: none;
+			li {
+				padding: 5px 0;
+				display: flex;
+				justify-content: space-between;
+				color: $fontColor;
+				.title {
+					font-family: $headerFont;
+					font-weight: 500;
+					color: $blackRussian;
+				}
+			}
+		}
+	}
+}
+
+.invoice-table {
+	padding-top: 60px;
+	margin-bottom: 60px;
+	overflow-x: auto;
+	table {
+		min-width: 400px;
+		thead {
+			width: 100%;
+			tr {
+				width: 100%;
+			}
+		}
+		tr {
+			th {
+				background: #f2f2f2;
+				border-bottom: 0;
+				border-top: 0;
+				padding: 10px;
+			}
+			td {
+				padding: 15px;
+				border-top: 0;
+				border-bottom: 1px solid rgba($black, .08);
+			}
+		}
+	}
+}
+
+.invoice-footer {
+	display: flex;
+	justify-content: space-between;
+	.invoice-by {
+		color: $fontColor;
+		h4 {
+			font-size: 1.8rem;
+			color: $blackRussian;
+			margin-bottom: 30px;
+		}
+		.name {
+			font-size: 1.4rem;
+			margin-bottom: 10px;
+			color: $blackRussian;
+		}
+		.invoice-contact {
+			span {
+				display: block;
+				a {
+					color: $primaryColor;
+				}
+			}
+		}
+	}
+	.bill {
+		ul {
+			width: 170px;
+			padding: 0;
+			margin: 0;
+			margin-left: auto;
+			list-style: none;
+			li {
+				padding: 5px 0;
+				display: flex;
+				justify-content: space-between;
+				.title {
+					font-family: $headerFont;
+					font-weight: 500;
+					color: $blackRussian;
+				}
+			}
+		}
+		.total {
+			margin-top: 30px;
+			background: $primaryColor;
+			color: $white;
+			min-width: 200px;
+			padding: 10px 0 10px 30px;
+			display: flex;
+			justify-content: space-between;
+			font-family: $headerFont;
+			position: relative;
+			&:before {
+				position: absolute;
+				content: '';
+				top: 0;
+				right: -30px;
+				width: 30px;
+				bottom: 0;
+				background: $primaryColor;
+			}
+		}
+	}
+}
+
+.invoice-print {
+	text-align: center;
+	margin-top: 40px;
+	a {
+		border: 1px solid rgba($black, .08);
+		border-radius: 3px;
+		background: $white;
+		color: $fontColor;
+		padding: 10px 30px;
+		font-family: $headerFont;
+		font-weight: 500;
+		&:hover {
+			background: $primaryColor;
+			color: $white;
+		}
+		svg {
+			height: 15px;
+			width: 15px;
+			margin-right: 7px;
+		}
+	}
+}
+
+.terms-container {
+  display: flex;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.03);
+  flex-direction: row-reverse;
+  .terms-sidebar {
+    background-image: linear-gradient(to right, #ffffff, #f7f9fc);
+  	padding: 30px;
+  	width: 25%;
+  	h5 {
+  		font-size: 1.5rem;
+    	text-transform: uppercase;
+    	margin-bottom: 30px;
+    	svg {
+    		height: 15px;
+    		width: 15px;
+    		margin-right: 7px;
+    		color: #aaa;
+    	}
+  	}
+  	.sidebar-menu {
+  		padding: 0;
+	    padding-bottom: 10px;
+	    margin: 0;
+	    list-style: none;
+	    li {
+	    	padding: 5px 0;
+    		position: relative;
+    		a {
+    			color: $fontColor;
+			    font-weight: 400;
+			    font-size: 1.4rem;
+			    padding: 5px 0;
+    		}
+    		&:before {
+    			position: absolute;
+			    content: '';
+			    bottom: 0;
+			    left: 0;
+			    height: 1px;
+			    width: 0;
+			    background: rgba($black, 0.08);
+			    transition: all .3s ease;
+    		}
+    		&:hover  {
+    			a {
+    				color: $primaryColor;
+    			}
+    			&:before {
+    				width: 100%;
+    			}
+    		}
+	    }
+  	}
+  	.signin-option {
+  		background: rgba(36, 109, 248, 0.15);
+	    border: 1px solid rgba(36, 109, 248, 0.4);
+	    border-radius: 3px;
+	    padding: 20px;
+	    margin-top: 20px;
+	    margin-bottom: 0;
+	    .buttons {
+		    .signin {
+		    	background: #246df8;
+			    border-radius: 3px;
+			    color: #ffffff;
+			    padding: 8px 20px;
+			    margin-right: 10px;
+			    font-family: $headerFont;
+			    font-weight: 500;
+		    }
+		    .register {
+	  	    color: #246df8;
+			    font-family: $headerFont;
+			    font-weight: 500;
+	  			text-decoration: underline;
+		    }
+		  }
+  	}
+  }
+  .terms-content-wrapper {
+  	width: 75%;
+    padding: 20px;
+    background: $white;
+  }
+}
+
+.policy-tab {
+	.nav-tabs {
+		font-size: 0;
+		border-bottom: 2px solid rgba($black, .08);
+		.nav-item {
+			margin-bottom: 0;
+			border: 0;
+			.nav-link {
+				font-size: 1.6rem;
+				font-family: $headerFont;
+				font-weight: 500;
+				color: $fontColor;
+				position: relative;
+				padding: 6px 20px;
+				border: 0;
+				&:before {
+					position: absolute;
+					bottom: -2px;
+					left: 0;
+					right: 0;
+					height: 2px;
+					content: '';
+				}
+				&:focus,
+				&:hover {
+					border: 0;
+					box-shadow: none;
+				}
+				&.active {
+					border: 0;
+					color: $primaryColor;
+					&:before {
+						background: $primaryColor;
+					}
+				}
+			}
+		}
+	}
+	.tab-content {
+		padding: 60px 0;
+		color: $fontColor;
+		h4 {
+			font-size: 1.8rem;
+			color: $blackRussian;
+			margin-bottom: 20px;
+		}
+		h5 {
+			font-size: 1.6rem;
+			color: $blackRussian;
+			margin-bottom: 20px;
+		}
+		p + h5,
+		ul + h5 {
+			margin-top: 40px;
+		}
+		ul {
+			padding: 0;
+			margin: 0;
+			margin-top: 20px;
+			list-style: none;
+			font-size: 0;
+			padding-left: 40px;
+			li {
+				font-size: 1.4rem;
+				position: relative;
+				&:before {
+					position: absolute;
+					content: '\f058';
+					font-family: 'Font Awesome\ 5 Free';
+					font-weight: 900;
+					top: 2px;
+					left: -20px;
+					color: #aaa;
+					font-size: 1.2rem;
+				}
+			}
+			li + li {
+				margin-top: 8px;
+			}
+		}
+		.substyle {
+			padding-left: 20px;
+			li:before {
+				content: '';
+			}
+			li span {
+				font-size: 1.4rem;
+				font-family: $headerFont;
+				font-weight: 600;
+				color: $blackRussian;
+				&:before {
+					content: '\f0da';
+					font-family: 'Font Awesome\ 5 Free';
+					font-weight: 900;
+					margin-right: 5px;
+				}
+			}
+		}
+	}
+}
+
+
+@media all and (max-width: 991px) {
+	.payment-summery {
+		margin-top: 60px;
+	}
+	.terms-container {
+		display: block;
+		.terms-content-wrapper {
+			width: 100%;
+		}
+		.terms-sidebar {
+			width: 100%;
+		}
+	}
+}
+
+@media all and (max-width: 539px) {
+	.invoice-header .logo-area img {
+		height: 30px;
+	}
+	.invoice-header .title span {
+		font-size: 3.0rem;
+	}
+	.invoice-info {
+		flex-wrap: wrap;
+		.left-info {
+			order: 2;
+		}
+		.right-info {
+			order: 1;
+			margin-bottom: 20px;
+			ul li {
+				padding: 0;
+			}
+		}
+	}
+	.invoice-footer {
+		flex-wrap: wrap;
+		.invoice-by {
+			order: 2;
+		}
+		.bill {
+			order: 1;
+			padding-bottom: 20px;
+			.total {
+				margin-top: 10px;
+			}
+		}
+	}
+}
+
+@media all and (max-width: 479px) {
+	.policy-tab .nav-tabs {
+		display: block;
+		border-bottom: 0;
+		.nav-item {
+			width: 100%;
+			text-align: center;
+			.nav-link {
+				border: 1px solid rgba($black, .08);
+				border-radius: 3px;
+				&.active {
+					border: 1px solid $primaryColor;
+					border-radius: 3px;
+					color: $primaryColor;
+				}
+				&.active:before {
+					height: 0;
+					width: 0;
+				}
+			}
+		}
+		.nav-item + .nav-item {
+			margin-top: 15px;
+		}
+	}
+}
+
+
+
+
+

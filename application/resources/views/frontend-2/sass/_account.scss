@@ -1,0 +1,231 @@
+
+
+/*---------------------------------------------
+	28.0 Account Style
+---------------------------------------------*/
+
+.access-page-bg {
+	background: url('../images/bg/access-bg.jpg') no-repeat center;
+	background-size: cover;
+}
+
+.header-2.access-page-nav {
+	box-shadow: none;
+	.header-top {
+		margin-bottom: 0;
+		padding: 30px 0;
+	}
+}
+
+.top-nav .account-page-link {
+	background: $primaryColor;
+	color: $white;
+	font-family: $headerFont;
+	font-weight: 500;
+	font-size: 1.4rem;
+	padding: 9px 30px;
+	border-radius: 3px;
+}
+
+.access-form {
+	.form-header {
+		background: #f5f5f5;
+		border-radius: 5px;
+		padding: 15px;
+		margin-bottom: 50px;
+		h5 {
+			font-size: 1.4rem;
+			font-family: $headerFont;
+			font-weight: 500;
+			color: $blackRussianLite;
+			svg {
+				height: 14px;
+				width: 14px;
+				margin-right: 8px;
+			}
+		}
+	}
+	.account-type {
+		margin-bottom: 30px;
+		display: flex;
+		justify-content: space-between;
+		label {
+			cursor: pointer;
+			width: 45%;
+			span {
+				padding: 15px 10px;
+				background: #f7f9fc;
+				border: 1px solid rgba($black, .08);
+				border-radius: 3px;
+				font-family: $headerFont;
+				font-weight: 500;
+				font-size: 1.4rem;
+				color: $blackRussianLite;
+				text-align: center;
+				width: 100%;
+				display: block;
+			}
+			input[type="radio"]:checked + span {
+				color: $primaryColor;
+				background: rgba($primaryColor, .2);
+				border-color: transparent;
+			}
+			input {
+				display: none;
+			}
+		}
+	}
+	.form-group {
+		margin-bottom: 30px;
+		.form-control {
+			height: 50px;
+			border: 0;
+			border-bottom: 1px solid rgba($black, .08);
+			border-radius: 0;
+			outline: none;
+			box-shadow: none;
+			font-size: 1.4rem;
+			&:focus {
+				border-bottom-color: $primaryColor;
+			}
+		}
+	}
+	.more-option {
+		display: flex;
+		justify-content: space-between;
+		color: $fontColor;
+		margin-bottom: 30px;
+		.form-check {
+			.form-check-input {
+				margin-top: 6px;
+			}
+			.form-check-label {
+				margin-left: 7px;
+			}
+		}
+		.custom-radio + label {
+			.dot {
+				border-radius: 5px;
+				&:before {
+					border-radius: 2px;
+				}
+			}
+		}
+		&.terms {
+			.form-check-label {
+				a {
+					color: $primaryColor;
+					text-decoration: underline;
+				}
+			}
+		} 
+		a:hover {
+			color: $primaryColor;
+		}
+	}
+	.button {
+		color: $white;
+		padding: 14px;
+		font-family: $headerFont;
+		font-weight: 500;
+	}
+	.shortcut-login {
+		margin-top: 30px;
+		span {
+			font-size: 1.4rem;
+			font-family: $bodyFont;
+			color: $fontColor;
+			margin-bottom: 10px;
+			display: inline-block;
+		}
+		.buttons {
+			display: flex;
+			justify-content: space-between;
+			a {
+				border: 1px solid rgba($black, .08);
+				border-radius: 3px;
+				padding: 14px 30px;
+				font-size: 1.4rem;
+				font-family: $headerFont;
+				font-weight: 600;
+				color: $blackRussian;
+				text-align: center;
+				width: 45%;
+				i {
+					margin-right: 7px;
+				}
+				&.facebook {
+					i {
+						color: #3b5998;
+					}
+				}
+				&.google i {
+					color: #ea4335;
+				}
+			}
+		}
+		p {
+			font-size: 1.4rem;
+			font-family: $bodyFont;
+			font-weight: 400;
+			color: $fontColor;
+			margin-top: 20px;
+			a {
+				font-weight: 500;
+				&:hover {
+					color: $primaryColor;
+				}
+			}
+		}
+	}
+}
+
+@media all and (max-width: 991px) {
+	.access-page-nav .header-top {
+		display: flex;
+		justify-content: space-between;
+		.top-nav {
+			display: block !important;
+			padding: 0;
+			box-shadow: none;
+			position: static;
+			width: auto;
+		}
+	}
+}
+
+@media all and (max-width: 767px) {
+	.access-page-bg {
+		background: transparent;
+	}
+}
+
+@media all and (max-width: 575px) {
+		.access-page-nav .header-top {
+			.top-nav {
+				display: none !important;
+			}
+		}
+}
+
+@media all and (max-width: 375px) {
+	.access-form .shortcut-login .buttons {
+		display: block;
+		a {
+			width: 100%;
+			+ a {
+				margin-top: 20px;
+			}
+		}
+	}
+	.access-form .shortcut-login {
+		text-align: center;
+		.buttons {
+			text-align: center;
+			a {
+				width: 180px;
+				margin: 0 auto;
+			}
+		}
+	}
+}
