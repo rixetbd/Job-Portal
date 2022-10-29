@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Frontend\BasicController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -9,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 */
+Route::post('/custom/login', [CustomAuthController::class, 'custom_login'])->name('custom.login');
 
 Route::controller(BasicController::class)->group(function(){
 
@@ -18,3 +20,8 @@ Route::controller(BasicController::class)->group(function(){
         return view('frontend.index2');
     });
 });
+
+Route::get('/ab', function () {
+    return Auth::user()->name;
+});
+

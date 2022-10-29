@@ -113,22 +113,26 @@
 
                                                         </div>
                                                         <div class="text-center">
-                                                            <button type="submit" class="log_btn btn btn-sm btn-white w-100">
+                                                            <button type="submit"
+                                                                class="log_btn btn btn-sm btn-white w-100">
                                                                 {{ __('Login') }}
                                                             </button>
                                                         </div>
                                                     </form>
                                                     <div class="mt-4 text-center">
-                                                        <p class="mb-0">Don't have an account ? <a href="{{url('/register')}}"
+                                                        <p class="mb-0">Don't have an account ? <a
+                                                                href="{{url('/register')}}"
                                                                 class="fw-medium text-white text-decoration-underline">
                                                                 Sign Up </a></p>
                                                     </div>
                                                     <div class="mt-4 text-center">
-                                                        <a class="btn btn-sm btn-light text-dark log_btn" href="{{ route('login.google') }}"><i
-                                                            class="fab fa-google me-1"></i> Sign with Google</a>
-                                                    <a class="btn btn-sm btn-light text-dark log_btn"
-                                                        href="{{ route('login.facebook') }}"><i class="fab fa-facebook-f me-1"></i> Sign
-                                                        with Facebook</a>
+                                                        <a class="btn btn-sm btn-light text-dark log_btn"
+                                                            href="{{ route('login.google') }}"><i
+                                                                class="fab fa-google me-1"></i> Sign with Google</a>
+                                                        <a class="btn btn-sm btn-light text-dark log_btn"
+                                                            href="{{ route('login.facebook') }}"><i
+                                                                class="fab fa-facebook-f me-1"></i> Sign
+                                                            with Facebook</a>
                                                     </div>
                                                 </div>
                                             </div>
