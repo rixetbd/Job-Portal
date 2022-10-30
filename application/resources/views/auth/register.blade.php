@@ -127,8 +127,8 @@
                                                                 <input type="password" class="form-control" id="passwordInput" name="password" placeholder="Enter your password">
                                                             </div>
                                                             <div class="mb-4">
-                                                                <div class="form-check"><input class="form-check-input" type="checkbox" id="flexCheckDefault" name="checkbox" value="1">
-                                                                    <label class="form-check-label" for="flexCheckDefault">I agree to the <a href="javascript:void(0)" class="text-decoration-underline">Terms and conditions</a></label>
+                                                                <div class="form-check"><input class="form-check-input" type="checkbox" id="flexCheckDefaultCompany" name="checkbox" value="1">
+                                                                    <label class="form-check-label" for="flexCheckDefaultCompany">I agree to the <a href="javascript:void(0)" class="text-decoration-underline">Terms and conditions</a></label>
                                                                 </div>
                                                             </div>
                                                             <div class="text-center">

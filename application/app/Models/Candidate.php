@@ -12,12 +12,12 @@ class Candidate extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected $guarded = ['id'];
 
     protected $guard = 'candidateauth';
 
-    protected $guarded = ['id'];
 
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+    // protected $casts = [
+    //     'email_verified_at' => 'datetime',
+    // ];
 }

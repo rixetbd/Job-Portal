@@ -15,7 +15,7 @@
 
     <!-- Swiper Css -->
     <link rel="stylesheet" href="{{asset('assets/frontend')}}/libs/swiper/swiper-bundle.min.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
     <!-- Bootstrap Css -->
     <link href="{{asset('assets/frontend')}}/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet"
         type="text/css" />
@@ -294,8 +294,12 @@
                     <li class="list-inline-item dropdown">
                         <a href="javascript:void(0)" class="header-item" id="userdropdown" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img src="{{Auth::guard('CandidateAuth')->user()->avater}}" alt="mdo" width="35" height="35"
-                                class="rounded-circle me-1"> <span class="d-none d-md-inline-block fw-medium">Hi,
+                            @if (!empty(Auth::guard('CandidateAuth')->user()->avater))
+                                <img src="{{Auth::guard('CandidateAuth')->user()->avater}}" alt="mdo" width="35" height="35"
+                                class="rounded-circle me-1">
+                            @endif
+
+                                <span class="d-none d-md-inline-block fw-medium">Hi,
                                 {{Auth::guard('CandidateAuth')->user()->name}}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown">
@@ -440,8 +444,8 @@
                         <div class="auth-content">
                             <div class="w-100">
                                 <div class="text-center mb-4">
-                                    <h5>Sign Up</h5>
-                                    <p class="text-muted">Sign Up and get access to all the features of
+                                    <h5>Sign In</h5>
+                                    <p class="text-muted">Sign In and get access to all the features of
                                         {{env('APP_NAME')}}</p>
                                 </div>
                                 <form method="POST" action="{{ route('custom.login') }}" class="auth-form">
@@ -464,10 +468,9 @@
                                     <div class="mb-3">
                                         <label for="passwordInput"
                                             class="form-label">{{ __('Password') }}</label>
-                                        <input id="password" type="password"
+                                        <input id="password" type="text"
                                             class="form-control @error('password') is-invalid @enderror"
-                                            name="password" required autocomplete="current-password"
-                                            placeholder="Enter your password">
+                                            name="password" required placeholder="Enter your password">
 
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -496,6 +499,12 @@
                                         <button type="submit" class="btn btn-primary w-100">Sign Up</button>
                                     </div>
                                 </form>
+                                <div class="row my-3 justify-content-center">
+                                    <div class="col-12 text-center">
+                                        <a class="btn btn-sm btn-light text-dark log_btn" href="{{ route('login.google') }}"><i class="fab fa-google me-1"></i> Sign with Google</a>
+                                        <a class="btn btn-sm btn-light text-dark log_btn" href="{{ route('login.facebook') }}"><i class="fab fa-facebook-f me-1"></i> Sign with Facebook</a>
+                                    </div>
+                                </div>
                                 <div class="mt-3 text-center">
                                     <p class="mb-0">Don't have an account ? <a href="{{route('register')}}" class="form-text text-primary text-decoration-underline"> Sign Up </a></p>
                                 </div>
