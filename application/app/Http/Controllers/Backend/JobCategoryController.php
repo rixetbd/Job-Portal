@@ -30,7 +30,9 @@ class JobCategoryController extends Controller
             'author'=>Auth::user()->name,
             'created_at'=>Carbon::now(),
         ]);
-        return back();
+        return response()->json([
+            'success'=>'success',
+        ]);
     }
 
     public function show($id)
@@ -50,22 +52,26 @@ class JobCategoryController extends Controller
     }
 
 
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        JobCategory::find($request->id)->delete();
+        return response()->json([
+            'success'=>'success',
+        ]);
     }
 
     public function autocategories(Request $request){
+
         $table = JobCategory::all();
 
-        $tableData = [];
+        $tableData = '';
         foreach ($table as $key => $value) {
-            $tableData .= '<tr><th scope="row"></th><td>'. $value->name .'</td><td>'. $value->author .'</td><td class="text-center p-0"><a class="btn btn-sm px-2 m-1 btn-primary" href="1"><i class="fa fa-edit"></i></a><a class="btn btn-sm px-2 m-1 btn-danger" href="1"><i class="fa fa-trash"></i></a></td></tr>';
+            $tableData .= '<tr><th scope="row">'.($key+1).'</th><td>'. $value->name .'</td><td>'. $value->author .'</td><td class="text-center p-0"><a class="btn btn-sm px-2 m-1 btn-primary" href="1"><i class="fa fa-edit"></i></a><button class="btn btn-sm px-2 m-1 btn-danger" onclick="categoryDestroy(\''.$value->id.'\')"><i class="fa fa-trash"></i></button></td></tr>';
         }
-
         return response()->json([
             'tableData'=>$tableData,
         ]);
+
     }
 
 }

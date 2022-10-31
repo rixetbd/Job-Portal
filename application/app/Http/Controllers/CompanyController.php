@@ -41,7 +41,7 @@ class CompanyController extends Controller
         $company = Company::create([
             "name"=>$request->name,
             "email"=>$request->email,
-            "password"=>$request->name,
+            "password"=>Hash::make($request->password),
             "created_at"=>Carbon::now(),
         ]);
         Auth::guard('CompanyAuth')->login($company);

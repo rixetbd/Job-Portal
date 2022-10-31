@@ -10,7 +10,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Sign In | WantJob</title>
+    <title>Sign In | {{ config('app.name', 'WantJob') }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content=" " />
     <meta name="keywords" content="" />
@@ -58,6 +58,8 @@
                                                 <p class="text-white-70">Sign in to continue to Jobcy.</p>
                                             </div>
                                             <form method="POST" action="{{ route('login') }}" class="auth-form">
+                                            <form method="POST" action="{{ route('custom.login') }}" class="auth-form">
+
                                                 @csrf
 
                                                 <div class="mb-3">

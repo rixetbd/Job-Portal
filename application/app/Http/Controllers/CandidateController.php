@@ -6,6 +6,7 @@ use App\Models\Candidate;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class CandidateController extends Controller
 {
@@ -46,7 +47,7 @@ class CandidateController extends Controller
         $Candidate = Candidate::create([
             "name"=>$request->name,
             "email"=>$request->email,
-            "password"=>$request->name,
+            "password"=>Hash::make($request->password),
             "created_at"=>Carbon::now(),
         ]);
         Auth::guard('CandidateAuth')->login($Candidate);

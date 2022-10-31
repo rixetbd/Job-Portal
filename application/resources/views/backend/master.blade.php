@@ -14,7 +14,7 @@
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="{{asset('assets/backend')}}/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="{{asset('assets/backend')}}/images/favicon.png" type="image/x-icon">
-    <title>viho - Premium Admin Template</title>
+    <title>Dashboard | {{ config('app.name', 'WantJob') }}</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
@@ -67,8 +67,11 @@
         <div class="page-main-header">
             <div class="main-header-right row m-0">
                 <div class="main-header-left">
-                    <div class="logo-wrapper"><a href="index.html"><img class="img-fluid"
-                                src="{{asset('assets/backend')}}/images/logo/logo.png" alt=""></a></div>
+                    <div class="logo-wrapper"><a href="index.html">
+                        <h4>{{ config('app.name', 'WantJob') }}</h4>
+                        {{-- <img class="img-fluid" src="{{asset('assets/backend')}}/images/logo/logo.png" alt=""> --}}
+
+                    </a></div>
                     <div class="dark-logo-wrapper"><a href="index.html"><img class="img-fluid"
                                 src="{{asset('assets/backend')}}/images/logo/dark-logo.png" alt=""></a></div>
                     <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="align-center"
@@ -193,8 +196,15 @@
                             </ul>
                         </li>
                         <li class="onhover-dropdown p-0">
-                            <button class="btn btn-primary-light" type="button"><a href="login_two.html"><i
-                                        data-feather="log-out"></i>Log out</a></button>
+                            <button class="btn btn-primary-light" type="button">
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    <i data-feather="log-out"></i>{{ __('Log out') }}</a>
+                            </button>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
                         </li>
                     </ul>
                 </div>
@@ -210,15 +220,22 @@
                 <div class="sidebar-user text-center"><a class="setting-primary" href="javascript:void(0)"><i
                             data-feather="settings"></i></a><img class="img-90 rounded-circle"
                         src="{{asset('assets/backend')}}/images/dashboard/1.png" alt="">
-                    <div class="badge-bottom"><span class="badge badge-primary">New</span></div><a
-                        href="user-profile.html">
+                    <div class="badge-bottom"><span class="badge badge-primary">New</span></div>
+
+                    <a href="user-profile.html">
+
                         @if (Auth::guard('CandidateAuth')->user())
                         <h6 class="mt-3 f-14 f-w-600">{{Auth::guard('CandidateAuth')->user()->name}}</h6>
                         <p class="mb-0 font-roboto">Candidate</p>
                         @elseif (Auth::guard('CompanyAuth')->user())
                         <h6 class="mt-3 f-14 f-w-600">{{Auth::guard('CompanyAuth')->user()->name}}</h6>
                         <p class="mb-0 font-roboto">Company</p>
+                        @elseif (Auth::user())
+                        <h6 class="mt-3 f-14 f-w-600">{{Auth::user()->name}}</h6>
+                        <p class="mb-0 font-roboto">Company</p>
                         @endif
+
+
                     </a>
 
                     <ul>
@@ -749,10 +766,10 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-6 footer-copyright">
-                            <p class="mb-0">Copyright {{date("Y")}} © viho All rights reserved.</p>
+                            <p class="mb-0">Copyright &copy; {{date("Y")}}. All rights reserved.</p>
                         </div>
                         <div class="col-md-6">
-                            <p class="pull-right mb-0">Hand crafted & made with <i
+                            <p class="pull-right mb-0">Development By <a target="_blank" href="https://rixetbd.com/">RixetBD</a> <i
                                     class="fa fa-heart font-secondary"></i></p>
                         </div>
                     </div>
@@ -801,6 +818,7 @@
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+
     </script>
     @yield('custom_script')
 </body>

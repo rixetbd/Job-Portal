@@ -62,16 +62,6 @@
                                 <div class="col-xl-10 col-lg-12">
                                     <div class="card auth-box">
                                         <div class="row align-items-center">
-                                            {{-- <div class="col-lg-6 text-center">
-                                                <div class="card-body p-4">
-                                                    <a href="index.html">
-                                                        <img src="{{asset('assets/frontend')}}/images/logo-light.png" alt="" class="logo-light img-fluid">
-                                                    </a>
-                                                    <div class="mt-5">
-                                                        <img src="{{asset('assets/frontend')}}/images/auth/sign-up.png" alt="" class="img-fluid">
-                                                    </div>
-                                                </div>
-                                            </div> --}}
                                             <div class="col-lg-6 p-0">
                                                 <div class="card-body px-5 pt-5">
                                                     <div class="w-100">

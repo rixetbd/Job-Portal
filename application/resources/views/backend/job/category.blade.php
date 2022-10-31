@@ -16,7 +16,8 @@
                     <span>Add Category</span>
                 </div>
                 <div class="card-body">
-                    <form class="theme-form" action="{{route('backend.job.categories.store')}}" method="POST">
+                    {{-- <form class="theme-form" action="{{route('backend.job.categories.store')}}" method="POST"> --}}
+                    <form class="theme-form" id="ajaxForm">
                         @csrf
                         <div class="mb-3">
                             <label class="col-form-label pt-0" for="CategoryName">Email address</label>
@@ -76,12 +77,59 @@
          type:'POST',
          url: `${urlData}`,
          success:function(data){
-            // $("#table_data").html(data.tableData);
-            console.log(data.tableData);
+            $("#table_data").html(data.tableData);
+            // console.log(data.tableData);
          }
       });
     }
     auto_categories();
+
+    $('#ajaxForm').on('submit',function(e){
+        let formUrlData = `{{route('backend.job.categories.store')}}`;
+        $.ajax({
+            type:"POST",
+            url: `${formUrlData}`,
+            data:{
+                name:$('#CategoryName').val(),
+            },
+            success:function(data){
+                auto_categories();
+            }
+      });
+
+    });
+
+    function categoryDestroy(id){
+        let formUrlData = `{{route('backend.job.categories.destroy')}}`;
+        $.ajax({
+            type:"POST",
+            url: `${formUrlData}`,
+            data:{
+                "id": id,
+            },
+            success:function(data){
+                auto_categories();
+            }
+      });
+    }
+
+    $('#ajaxForm').on('submit',function(e){
+        let formUrlData = `{{route('backend.job.categories.store')}}`;
+        $.ajax({
+            type:"POST",
+            url: `${formUrlData}`,
+            data:{
+                "_token": "{{ csrf_token() }}",
+                name:$('#CategoryName').val(),
+            },
+            success:function(data){
+                auto_categories();
+            }
+      });
+
+    });
+
+
 </script>
 
 @endsection

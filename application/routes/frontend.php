@@ -21,7 +21,3 @@ Route::controller(BasicController::class)->group(function(){
     });
 });
 
-Route::get('/ab', function () {
-    return Auth::user()->name;
-});
-
