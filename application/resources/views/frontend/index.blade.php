@@ -3,11 +3,10 @@
 @section('meta_data')
 
 @include('meta::manager', [
-    'title' => env('APP_NAME').' | Job portal',
+    'title' => config('app.name', 'WantJob').' | Job portal',
     'description' => 'This is my example description',
     'image' => 'Url to the image',
 ])
-
 @endsection
 
 

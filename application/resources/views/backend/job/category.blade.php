@@ -84,7 +84,7 @@
     }
     auto_categories();
 
-    $('#ajaxForm').on('submit',function(e){
+    $('#ajaxForm').on('submit',function(){
         let formUrlData = `{{route('backend.job.categories.store')}}`;
         $.ajax({
             type:"POST",
@@ -113,21 +113,21 @@
       });
     }
 
-    $('#ajaxForm').on('submit',function(e){
-        let formUrlData = `{{route('backend.job.categories.store')}}`;
-        $.ajax({
-            type:"POST",
-            url: `${formUrlData}`,
-            data:{
-                "_token": "{{ csrf_token() }}",
-                name:$('#CategoryName').val(),
-            },
-            success:function(data){
-                auto_categories();
-            }
-      });
+    // $('#ajaxForm').on('submit',function(e){
+    //     let formUrlData = `{{route('backend.job.categories.store')}}`;
+    //     $.ajax({
+    //         type:"POST",
+    //         url: `${formUrlData}`,
+    //         data:{
+    //             "_token": "{{ csrf_token() }}",
+    //             name:$('#CategoryName').val(),
+    //         },
+    //         success:function(data){
+    //             auto_categories();
+    //         }
+    //   });
 
-    });
+    // });
 
 
 </script>

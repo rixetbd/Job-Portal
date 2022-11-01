@@ -6,8 +6,12 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
+use App\Models\Candidate;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
+use Intervention\Image\Facades\Image;
 
 class SocialAuthController extends Controller
 {
@@ -20,8 +24,9 @@ class SocialAuthController extends Controller
     public function callback_google()
     {
         $getUser = Socialite::driver('google')->user();
-        $this->_add_user($getUser);
-        return redirect('/login');
+        // dd($getUser);
+        $this->_add_user_google($getUser);
+        return redirect(url('/'));
     }
 
     public function login_facebook()
@@ -33,30 +38,65 @@ class SocialAuthController extends Controller
     {
         $getUser = Socialite::driver('facebook')->user();
         // dd($getUser);
-        $this->_add_user($getUser);
-        return redirect('/login');
+        $this->_add_user_facebook($getUser);
+        return redirect(url('/'));
     }
 
-    protected function _add_user($data){
-        $user = User::where('email', '=', $data->email)->first();
+    protected function _add_user_facebook($data){
+
+        $user = Candidate::where('email', '=', $data->email)->first();
+        $id_gen = Carbon::now()->year.'-'.Carbon::now()->month.'-'.Carbon::now()->day.rand(1111111, 999999999);
         if (!$user) {
-            $user = new User();
+            $user = new Candidate();
+            $avatar_name = $data->email.'_'.rand(0,1000).'.jpg';
             $user->name         = $data->name;
             $user->email        = $data->email;
             $user->password     = Hash::make($data->id);
-            $user->avatar       = $data->avatar;
+            $user->user_id     = $id_gen;
+            $user->avatar       = $avatar_name;
             $user->provider_id  = $data->id;
+            Image::make($data->avatar_original.'&access_token='.$data->token)->save(public_path('uploads/users/'.$avatar_name));
             $user->save();
         }else{
-            User::where('email', '=', $data->email)->update([
-                'avatar'=> $data->avatar,
+            $image_path = public_path('uploads/users/'.$user->avatar);
+            if (File::exists($image_path)) {
+                unlink($image_path);
+            }
+            $avatar_name = $data->email.'_'.rand(0,1000).'.jpg';
+            Image::make($data->avatar_original.'&access_token='.$data->token)->save(public_path('uploads/users/'.$avatar_name));
+            Candidate::where('email', '=', $data->email)->update([
+                'avatar'=> $avatar_name,
             ]);
         }
-        Auth::login($user);
+        Auth::guard('CandidateAuth')->login($user);
     }
 
-
-
-
+    protected function _add_user_google($data){
+        $user = Candidate::where('email','=', $data->email)->first();
+        $id_gen = Carbon::now()->year.'-'.Carbon::now()->month.'-'.Carbon::now()->day.rand(1111111, 999999999);
+        if (!$user) {
+            $user = new Candidate();
+            $avatar_name = $data->email.'_'.rand(0,1000).'.jpg';
+            $user->name         = $data->name;
+            $user->email        = $data->email;
+            $user->password     = Hash::make($data->id);
+            $user->user_id     = $id_gen;
+            $user->avatar       = $avatar_name;
+            $user->provider_id  = $data->id;
+            Image::make($data->avatar_original)->save(public_path('uploads/users/'.$avatar_name));
+            $user->save();
+        }else{
+            $image_path = public_path('uploads/users/'.$user->avatar);
+            if (File::exists($image_path)) {
+                unlink($image_path);
+            }
+            $avatar_name = $data->email.'_'.rand(0,1000).'.jpg';
+            Image::make($data->avatar_original)->save(public_path('uploads/users/'.$avatar_name));
+            Candidate::where('email', '=', $data->email)->update([
+                'avatar'=> $avatar_name,
+            ]);
+        }
+        Auth::guard('CandidateAuth')->login($user);
+    }
 
 }

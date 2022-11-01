@@ -24,6 +24,9 @@ class JobCategoryController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'name'=>'required|unique:job_categories,name'
+        ]);
         JobCategory::insert([
             'name'=>$request->name,
             'slug'=>Str::slug($request->name),

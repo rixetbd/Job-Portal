@@ -67,7 +67,7 @@
         <div class="page-main-header">
             <div class="main-header-right row m-0">
                 <div class="main-header-left">
-                    <div class="logo-wrapper"><a href="index.html">
+                    <div class="logo-wrapper"><a href="{{route('dashboard')}}">
                         <h4>{{ config('app.name', 'WantJob') }}</h4>
                         {{-- <img class="img-fluid" src="{{asset('assets/backend')}}/images/logo/logo.png" alt=""> --}}
 
@@ -218,8 +218,19 @@
             <!-- Page Sidebar Start-->
             <header class="main-nav">
                 <div class="sidebar-user text-center"><a class="setting-primary" href="javascript:void(0)"><i
-                            data-feather="settings"></i></a><img class="img-90 rounded-circle"
-                        src="{{asset('assets/backend')}}/images/dashboard/1.png" alt="">
+                            data-feather="settings"></i></a>
+
+
+                            @if (Auth::guard('CandidateAuth')->user())
+                                <img class="img-90 rounded-circle" src="{{asset('application/uploads/users')}}/{{Auth::guard('CandidateAuth')->user()->avatar}}" alt="">
+                            @elseif (Auth::guard('CompanyAuth')->user())
+                                <img class="img-90 rounded-circle" src="{{asset('application/uploads/users')}}/{{Auth::guard('CompanyAuth')->user()->avatar}}" alt="">
+                            @elseif (Auth::user())
+                                <img class="img-90 rounded-circle" src="{{asset('application/uploads/users')}}/{{Auth::user()->avatar}}" alt="">
+                            @endif
+
+
+
                     <div class="badge-bottom"><span class="badge badge-primary">New</span></div>
 
                     <a href="user-profile.html">

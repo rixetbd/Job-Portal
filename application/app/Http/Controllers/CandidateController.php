@@ -98,4 +98,12 @@ class CandidateController extends Controller
     {
         //
     }
+
+    public function profile($id)
+    {
+        $user = Candidate::where('user_id','=', $id)->first();
+        return view('frontend.profile',[
+            'user'=>$user,
+        ]);
+    }
 }

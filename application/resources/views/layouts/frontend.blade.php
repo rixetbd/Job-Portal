@@ -71,7 +71,7 @@
                                 </li> --}}
                         </ul>
                     </div>
-                    @if (empty(Auth::guard('CandidateAuth')->user()) && empty(Auth::guard('CompanyAuth')->user()))
+                    @if (empty(Auth::guard('CandidateAuth')->user()) && empty(Auth::guard('CompanyAuth')->user()) && empty(Auth::user()))
                     <div class="col-md-5">
                         <ul class="list-inline mb-0 text-center text-md-end">
                             <li class="list-inline-item py-2 me-2 align-middle">
@@ -100,7 +100,7 @@
         <!--Navbar Start -->
         <nav class="navbar navbar-expand-lg fixed-top sticky" id="navbar">
             <div class="container-fluid custom-container">
-                <a class="navbar-brand text-dark fw-bold me-auto" href="index.html">
+                <a class="navbar-brand text-dark fw-bold me-auto" href="{{route('frontend.index')}}">
                     <img src="{{asset('assets/frontend')}}/images/logo-dark.png" height="22" alt="" class="logo-dark" />
                     <img src="{{asset('assets/frontend')}}/images/logo-light.png" height="22" alt=""
                         class="logo-light" />
@@ -229,8 +229,8 @@
                                 <a href="javascript:void(0)" class="text-dark notification-item d-block">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-shrink-0 me-3">
-                                            <img src="{{asset('assets/frontend')}}/images/user/img-02.jpg"
-                                                class="rounded-circle avatar-xs" alt="user-pic">
+                                            <img src="{{Auth::guard('CandidateAuth')->user()->avatar}}"
+                                                class="rounded-circle avatar-xs" alt="{{Auth::guard('CandidateAuth')->user()->name}}">
                                         </div>
                                         <div class="flex-grow-1">
                                             <h6 class="mt-0 mb-1 fs-14">James Lemire</h6>
@@ -243,7 +243,7 @@
                                 <a href="javascript:void(0)" class="text-dark notification-item d-block">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-shrink-0 me-3">
-                                            <img src="{{asset('assets/frontend')}}/images/featured-job/img-04.png"
+                                            <img src="{{Auth::guard('CandidateAuth')->user()->avatar}}"
                                                 class="rounded-circle avatar-xs" alt="user-pic">
                                         </div>
                                         <div class="flex-grow-1">
@@ -294,18 +294,22 @@
                     <li class="list-inline-item dropdown">
                         <a href="javascript:void(0)" class="header-item" id="userdropdown" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            @if (!empty(Auth::guard('CandidateAuth')->user()->avater))
-                                <img src="{{Auth::guard('CandidateAuth')->user()->avater}}" alt="mdo" width="35" height="35"
+                            @if (!empty(Auth::guard('CandidateAuth')->user()->avatar))
+                                <img src="{{asset('application/uploads/users')}}/{{Auth::guard('CandidateAuth')->user()->avatar}}" alt="{{Auth::guard('CandidateAuth')->user()->name}}" width="35" height="35"
                                 class="rounded-circle me-1">
                             @endif
-
                                 <span class="d-none d-md-inline-block fw-medium">Hi,
                                 {{Auth::guard('CandidateAuth')->user()->name}}</span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userdropdown">
                             <li><a class="dropdown-item" href="manage-jobs.html">Manage Jobs</a></li>
                             <li><a class="dropdown-item" href="bookmark-jobs.html">Bookmarks Jobs</a></li>
-                            <li><a class="dropdown-item" href="profile.html">My Profile</a></li>
+
+
+                            <li><a class="dropdown-item" href="{{route('candidate.profile', Auth::guard('CandidateAuth')->user()->user_id)}}">My Profile</a></li>
+
+
+
                             <li><a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a></li>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
@@ -413,7 +417,7 @@
                     <li class="list-inline-item dropdown">
                         <a href="javascript:void(0)" class="header-item" id="userdropdown" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img src="{{Auth::guard('CompanyAuth')->user()->avater}}" alt="mdo" width="35" height="35"
+                            <img src="{{asset('application/uploads/users')}}/{{Auth::guard('CompanyAuth')->user()->avatar}}" alt="{{Auth::guard('CompanyAuth')->user()->name}}" width="35" height="35"
                                 class="rounded-circle me-1"> <span class="d-none d-md-inline-block fw-medium">Hi,
                                 {{Auth::guard('CompanyAuth')->user()->name}}</span>
                         </a>
@@ -528,7 +532,7 @@
                     <li class="list-inline-item dropdown">
                         <a href="javascript:void(0)" class="header-item" id="userdropdown" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img src="{{Auth::user()->avater}}" alt="mdo" width="35" height="35"
+                            <img src="{{asset('application/uploads/users')}}/{{Auth::user()->avatar}}" alt="{{Auth::user()->name}}" width="35" height="35"
                                 class="rounded-circle me-1"> <span class="d-none d-md-inline-block fw-medium">Hi,
                                 {{Auth::user()->name}}</span>
                         </a>

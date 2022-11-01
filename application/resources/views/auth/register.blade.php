@@ -128,14 +128,13 @@
                                                     </div>
                                                 </div>
                                             </div><!--end col-->
-                                            <div class="row my-3 justify-content-center">
-                                                <div class="col-md-8 text-center">
-                                                    <a class="btn btn-sm btn-light text-dark log_btn" href="{{ route('login.google') }}"><i class="fab fa-google me-1"></i> Sign with Google</a>
-                                                    <a class="btn btn-sm btn-light text-dark log_btn" href="{{ route('login.facebook') }}"><i class="fab fa-facebook-f me-1"></i> Sign with Facebook</a>
-                                                </div>
-                                            </div>
                                             <div class="mb-3 text-center">
-
+                                                <div class="row my-3 justify-content-center">
+                                                    <div class="text-center">
+                                                        <a class="btn btn-sm btn-light text-dark log_btn" href="{{ route('login.google') }}"><i class="fab fa-google me-1"></i> Sign with Google</a>
+                                                        <a class="btn btn-sm btn-light text-dark log_btn" href="{{ route('login.facebook') }}"><i class="fab fa-facebook-f me-1"></i> Sign with Facebook</a>
+                                                    </div>
+                                                </div>
                                                 <p class="mb-0">Already a member ? <a href="{{route('login')}}" class="fw-medium  text-decoration-underline"> Sign In </a></p>
                                             </div>
                                         </div><!--end row-->
