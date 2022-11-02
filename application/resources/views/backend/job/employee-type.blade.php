@@ -12,15 +12,15 @@
         <div class="col-sm-12 col-md-4">
             <div class="card">
                 <div class="card-header pb-0">
-                    <h5>Job Categories</h5>
-                    <span>Add Category</span>
+                    <h5>Employee Types</h5>
+                    <span>Add Type</span>
                 </div>
                 <div class="card-body">
                     {{-- <form class="theme-form" action="{{route('backend.job.categories.store')}}" method="POST"> --}}
                     <form class="theme-form" id="ajaxForm">
                         @csrf
                         <div class="mb-3">
-                            <label class="col-form-label pt-0" for="CategoryName">Category Name</label>
+                            <label class="col-form-label pt-0" for="CategoryName">Employee Type</label>
                             <input class="form-control" id="CategoryName" type="text" name="name" placeholder="Category Name">
                             <small class="form-text text-muted" id="emailHelp">We'll never share your email with anyone
                                 else.</small>
@@ -34,8 +34,8 @@
         <div class="col-sm-12 col-md-8">
             <div class="card">
                 <div class="card-header pb-0">
-                    <h5>Categories List</h5>
-                    <span>All Category Information</span>
+                    <h5>Employee Types</h5>
+                    <span>All Types Information</span>
                 </div>
 
                 <div class="card-body">
@@ -44,13 +44,14 @@
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
-                                    <th scope="col">Category Name</th>
+                                    <th scope="col">Employee Type Name</th>
                                     <th scope="col">Author</th>
                                     <th scope="col">Created At</th>
                                     <th scope="col" class="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody id="table_data">
+
                             </tbody>
                         </table>
                     </div>

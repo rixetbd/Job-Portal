@@ -295,7 +295,7 @@
                         <a href="javascript:void(0)" class="header-item" id="userdropdown" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             @if (!empty(Auth::guard('CandidateAuth')->user()->avatar))
-                                <img src="{{asset('application/uploads/users')}}/{{Auth::guard('CandidateAuth')->user()->avatar}}" alt="{{Auth::guard('CandidateAuth')->user()->name}}" width="35" height="35"
+                                <img src="{{asset('application/uploads/users')}}/{{(Auth::guard('CandidateAuth')->user()->avatar != ''?Auth::guard('CandidateAuth')->user()->avatar:'default.png')}}" alt="{{Auth::guard('CandidateAuth')->user()->name}}" width="35" height="35"
                                 class="rounded-circle me-1">
                             @endif
                                 <span class="d-none d-md-inline-block fw-medium">Hi,
@@ -417,7 +417,7 @@
                     <li class="list-inline-item dropdown">
                         <a href="javascript:void(0)" class="header-item" id="userdropdown" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img src="{{asset('application/uploads/users')}}/{{Auth::guard('CompanyAuth')->user()->avatar}}" alt="{{Auth::guard('CompanyAuth')->user()->name}}" width="35" height="35"
+                            <img src="{{asset('application/uploads/users')}}/{{(Auth::guard('CompanyAuth')->user()->avatar != ''?Auth::guard('CompanyAuth')->user()->avatar:'default.png')}}" alt="{{Auth::guard('CompanyAuth')->user()->name}}" width="35" height="35"
                                 class="rounded-circle me-1"> <span class="d-none d-md-inline-block fw-medium">Hi,
                                 {{Auth::guard('CompanyAuth')->user()->name}}</span>
                         </a>
@@ -532,7 +532,7 @@
                     <li class="list-inline-item dropdown">
                         <a href="javascript:void(0)" class="header-item" id="userdropdown" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            <img src="{{asset('application/uploads/users')}}/{{Auth::user()->avatar}}" alt="{{Auth::user()->name}}" width="35" height="35"
+                            <img src="{{asset('application/uploads/users')}}/{{(Auth::user()->avatar != ''?Auth::user()->avatar:'default.png')}}" width="35" height="35"
                                 class="rounded-circle me-1"> <span class="d-none d-md-inline-block fw-medium">Hi,
                                 {{Auth::user()->name}}</span>
                         </a>

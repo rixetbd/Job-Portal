@@ -1,3 +1,7 @@
+@php
+    $currentRouteName = Route::currentRouteName();
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -220,19 +224,14 @@
                 <div class="sidebar-user text-center"><a class="setting-primary" href="javascript:void(0)"><i
                             data-feather="settings"></i></a>
 
-
                             @if (Auth::guard('CandidateAuth')->user())
-                                <img class="img-90 rounded-circle" src="{{asset('application/uploads/users')}}/{{Auth::guard('CandidateAuth')->user()->avatar}}" alt="">
+                                <img class="img-90 rounded-circle" src="{{asset('application/uploads/users')}}/{{(Auth::guard('CandidateAuth')->user()->avatar != ''?Auth::guard('CandidateAuth')->user()->avatar:'default.png')}}" alt="">
                             @elseif (Auth::guard('CompanyAuth')->user())
-                                <img class="img-90 rounded-circle" src="{{asset('application/uploads/users')}}/{{Auth::guard('CompanyAuth')->user()->avatar}}" alt="">
+                                <img class="img-90 rounded-circle" src="{{asset('application/uploads/users')}}/{{(Auth::guard('CompanyAuth')->user()->avatar != ''?Auth::guard('CompanyAuth')->user()->avatar:'default.png')}}" alt="">
                             @elseif (Auth::user())
-                                <img class="img-90 rounded-circle" src="{{asset('application/uploads/users')}}/{{Auth::user()->avatar}}" alt="">
+                                <img class="img-90 rounded-circle" src="{{asset('application/uploads/users')}}/{{(Auth::user()->avatar != ''?Auth::user()->avatar:'default.png')}}" alt="">
                             @endif
-
-
-
-                    <div class="badge-bottom"><span class="badge badge-primary">New</span></div>
-
+                    {{-- <div class="badge-bottom"><span class="badge badge-primary">New</span></div> --}}
                     <a href="user-profile.html">
 
                         @if (Auth::guard('CandidateAuth')->user())
@@ -248,7 +247,7 @@
 
 
                     </a>
-
+{{--
                     <ul>
                         <li><span><span class="counter">19.8</span>k</span>
                             <p>Follow</p>
@@ -259,7 +258,7 @@
                         <li><span><span class="counter">95.2</span>k</span>
                             <p>Follower </p>
                         </li>
-                    </ul>
+                    </ul> --}}
                 </div>
                 <nav>
                     <div class="main-navbar">
@@ -282,11 +281,11 @@
                                         <li><a href="dashboard-02.html">Ecommerce</a></li>
                                     </ul>
                                 </li>
-                                <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i
+                                <li class="dropdown"><a class="nav-link menu-title {{$currentRouteName == "backend.job.categories"?"active":" "}} {{$currentRouteName == "backend.job.employee_type"?"active":" "}}" href="javascript:void(0)"><i
                                             data-feather="airplay"></i><span>Jobs Basic</span></a>
                                     <ul class="nav-submenu menu-content">
                                         <li><a href="{{route('backend.job.categories')}}">Categories</a></li>
-                                        <li><a href="chart-widget.html">Tags</a></li>
+                                        <li><a href="{{route('backend.job.employee_type')}}">Employee Type</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a class="nav-link menu-title" href="javascript:void(0)"><i

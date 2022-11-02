@@ -1429,7 +1429,7 @@ body[data-layout-mode=dark] .registration-form .form-control {
     transform: translateY(-8px)
 }
 
-.job-Categories-box .job-Categories-list li {
+.job-Categories-box .job-Categories-list div div {
     background-color: #fff;
     padding: 8px 14px;
     border-radius: 4px;

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Backend\JobCategory;
 use Illuminate\Http\Request;
 
 class BasicController extends Controller
@@ -10,7 +11,10 @@ class BasicController extends Controller
 
     public function index()
     {
-        return view('frontend.index');
+        $all_categories = JobCategory::all();
+        return view('frontend.index',[
+            'all_categories'=>$all_categories,
+        ]);
     }
 
     /**

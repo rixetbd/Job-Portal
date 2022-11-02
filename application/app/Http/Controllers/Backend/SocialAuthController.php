@@ -10,6 +10,7 @@ use App\Models\Candidate;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Laravel\Socialite\Facades\Socialite;
 use Intervention\Image\Facades\Image;
 
@@ -45,14 +46,13 @@ class SocialAuthController extends Controller
     protected function _add_user_facebook($data){
 
         $user = Candidate::where('email', '=', $data->email)->first();
-        $id_gen = Carbon::now()->year.'-'.Carbon::now()->month.'-'.Carbon::now()->day.rand(1111111, 999999999);
         if (!$user) {
             $user = new Candidate();
             $avatar_name = $data->email.'_'.rand(0,1000).'.jpg';
             $user->name         = $data->name;
             $user->email        = $data->email;
             $user->password     = Hash::make($data->id);
-            $user->user_id     = $id_gen;
+            $user->user_id     = Str::slug($data->name).'-'.Carbon::now()->year.rand(1111111, 999999999);
             $user->avatar       = $avatar_name;
             $user->provider_id  = $data->id;
             Image::make($data->avatar_original.'&access_token='.$data->token)->save(public_path('uploads/users/'.$avatar_name));
@@ -73,14 +73,13 @@ class SocialAuthController extends Controller
 
     protected function _add_user_google($data){
         $user = Candidate::where('email','=', $data->email)->first();
-        $id_gen = Carbon::now()->year.'-'.Carbon::now()->month.'-'.Carbon::now()->day.rand(1111111, 999999999);
         if (!$user) {
             $user = new Candidate();
             $avatar_name = $data->email.'_'.rand(0,1000).'.jpg';
             $user->name         = $data->name;
             $user->email        = $data->email;
             $user->password     = Hash::make($data->id);
-            $user->user_id     = $id_gen;
+            $user->user_id     = Str::slug($data->name).'-'.Carbon::now()->year.rand(1111111, 999999999);
             $user->avatar       = $avatar_name;
             $user->provider_id  = $data->id;
             Image::make($data->avatar_original)->save(public_path('uploads/users/'.$avatar_name));

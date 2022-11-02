@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Frontend\BasicController;
+use App\Http\Controllers\Frontend\FrontendController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -21,3 +22,10 @@ Route::controller(BasicController::class)->group(function(){
     });
 });
 
+
+// Route::controller(FrontendController::class)->group(function(){
+//     Route::get('')
+// });
+Route::controller(FrontendController::class)->group(function(){
+    Route::get('/jobs/categories', 'jobs_categories')->name('jobs.categories');
+});

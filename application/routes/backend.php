@@ -19,10 +19,11 @@ Route::controller(SocialAuthController::class)->group(function(){
 
 
 Route::controller(JobCategoryController::class)->group(function(){
-
     Route::get('/backend/job-categories', 'index')->name('backend.job.categories');
     Route::post('/backend/job-categories/store', 'store')->name('backend.job.categories.store');
     Route::post('/backend/job-categories/destroy', 'destroy')->name('backend.job.categories.destroy');
     Route::post('/autocategories', 'autocategories')->name('autocategories');
 
+
+    Route::get('/backend/employee-type', 'employee_type')->name('backend.job.employee_type');
 });

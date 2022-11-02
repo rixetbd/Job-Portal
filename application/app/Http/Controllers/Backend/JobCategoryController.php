@@ -16,6 +16,10 @@ class JobCategoryController extends Controller
     {
         return view('backend.job.category');
     }
+    public function employee_type()
+    {
+        return view('backend.job.employee-type');
+    }
 
     public function create()
     {
@@ -69,7 +73,7 @@ class JobCategoryController extends Controller
 
         $tableData = '';
         foreach ($table as $key => $value) {
-            $tableData .= '<tr><th scope="row">'.($key+1).'</th><td>'. $value->name .'</td><td>'. $value->author .'</td><td class="text-center p-0"><a class="btn btn-sm px-2 m-1 btn-primary" href="1"><i class="fa fa-edit"></i></a><button class="btn btn-sm px-2 m-1 btn-danger" onclick="categoryDestroy(\''.$value->id.'\')"><i class="fa fa-trash"></i></button></td></tr>';
+            $tableData .= '<tr><th scope="row">'.($key+1).'</th><td>'. $value->name .'</td><td>'. $value->author .'</td><td>'. $value->created_at->diffForHumans() .'</td><td class="text-center p-0"><a class="btn btn-sm px-2 m-1 btn-primary" href="1"><i class="fa fa-edit"></i></a><button class="btn btn-sm px-2 m-1 btn-danger" onclick="categoryDestroy(\''.$value->id.'\')"><i class="fa fa-trash"></i></button></td></tr>';
         }
         return response()->json([
             'tableData'=>$tableData,
