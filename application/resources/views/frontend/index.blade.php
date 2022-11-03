@@ -135,6 +135,7 @@
 </div>
 <!-- END SHAPE -->
 
+@if (count($all_categories) > 0)
 <!-- START CATEGORY -->
 <section class="section">
     <div class="container">
@@ -184,7 +185,7 @@
     <!--end container-->
 </section>
 <!-- END CATEGORY -->
-
+@endif
 <!-- START JOB-LIST -->
 <section class="section bg-light">
     <div class="container">

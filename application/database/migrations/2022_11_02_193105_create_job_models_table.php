@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -18,12 +19,15 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug');
             $table->string('category');
+            $table->integer('post_by');
             $table->integer('company_id');
             $table->string('vacancy');
             $table->string('experience');
             $table->string('employee_type');
             $table->string('salary');
             $table->text('description');
+            $table->string('job_location');
+            $table->string('deadline');
             $table->string('thumbnail')->nullable();
             $table->integer('status')->default('1');
             $table->timestamps();

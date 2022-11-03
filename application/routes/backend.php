@@ -4,6 +4,7 @@ use App\Http\Controllers\Backend\BackendUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Backend\SocialAuthController;
 use App\Http\Controllers\Backend\JobCategoryController;
+use App\Http\Controllers\Backend\JobController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +30,9 @@ Route::controller(JobCategoryController::class)->group(function(){
 
 Route::controller(BackendUserController::class)->group(function(){
     Route::get('/backend/user', 'index')->name('backend.user.index');
+});
+
+Route::controller(JobController::class)->group(function(){
+    Route::get('/backend/jobs', 'index')->name('backend.job.list');
+    Route::get('/backend/jobs/create', 'create')->name('backend.job.create');
 });

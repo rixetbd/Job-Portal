@@ -284,6 +284,13 @@
                                         <li><a href="{{route('backend.job.employee_type')}}">Employee Type</a></li>
                                     </ul>
                                 </li>
+                                <li class="dropdown"><a class="nav-link menu-title {{$currentRouteName == "backend.job.list"?"active":" "}} {{$currentRouteName == "backend.job.create"?"active":" "}}" href="javascript:void(0)"><i
+                                            data-feather="airplay"></i><span>Jobs Post</span></a>
+                                    <ul class="nav-submenu menu-content">
+                                        <li><a href="{{route('backend.job.list')}}">All Jobs</a></li>
+                                        <li><a href="{{route('backend.job.create')}}">Add New</a></li>
+                                    </ul>
+                                </li>
                                 <li class="dropdown"><a class="nav-link menu-title {{$currentRouteName == "backend.user.index"?"active":" "}}" href="javascript:void(0)"><i
                                     data-feather="users"></i><span>Users</span></a>
                                     <ul class="nav-submenu menu-content">

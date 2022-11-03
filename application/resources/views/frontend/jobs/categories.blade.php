@@ -48,7 +48,6 @@
     </div>
     <!-- END SHAPE -->
 
-
     <!-- START CATEGORIES -->
     <section class="section">
         <div class="container">
