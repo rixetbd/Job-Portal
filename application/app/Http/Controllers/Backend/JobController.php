@@ -3,7 +3,11 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Backend\JobModel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class JobController extends Controller
 {
@@ -14,7 +18,10 @@ class JobController extends Controller
      */
     public function index()
     {
-        return view('backend.job.list');
+        $all_jobs = JobModel::where('status', 1)->get();
+        return view('backend.job.list',[
+            'all_jobs'=>$all_jobs,
+        ]);
     }
 
     /**
@@ -35,7 +42,25 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        JobModel::insert([
+            'title' =>$request->title,
+            'slug' =>Str::slug($request->title),
+            'category'  =>$request->category,
+            'post_by'  => '1',
+            'company_id'    =>$request->company,
+            'vacancy'   =>$request->vacancy,
+            'experience'    =>$request->experience,
+            'employee_type' =>$request->employee_type,
+            'salary'    =>$request->salary,
+            'job_location'    =>$request->job_location,
+            'description'   =>$request->description,
+            'deadline'   =>$request->deadline,
+            'website' =>$request->website,
+            'created_at'    =>Carbon::now(),
+        ]);
+
+        return redirect()->route('backend.job.list');
     }
 
     /**
@@ -78,8 +103,8 @@ class JobController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        JobModel::where('slug','=',$request->slug)->delete();
     }
 }

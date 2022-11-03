@@ -32,6 +32,21 @@
                                 </tr>
                             </thead>
                             <tbody id="table_data">
+                                @foreach ($all_jobs as $key=> $jobs_item)
+                                <tr>
+                                    <td>{{$key+1}}</td>
+                                    <td>{{$jobs_item->title}}</td>
+                                    <td>{{($jobs_item->getCategory != '' ? $jobs_item->getCategory->name:"N/A")}}</td>
+                                    <td>{{$jobs_item->company_id}}</td>
+                                    <td>{{$jobs_item->job_location}}</td>
+                                    <td>{{$jobs_item->website}}</td>
+                                    <td>{{$jobs_item->created_at->diffForHumans()}}</td>
+                                    <td>
+                                        <a class="btn btn-sm px-2 m-1 btn-primary" href="#"><i class="fa fa-edit"></i></a>
+                                        <button class="btn btn-sm px-2 m-1 btn-danger" onclick="jobDestroy('{{$jobs_item->slug}}')"><i class="fa fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -52,18 +67,18 @@
 <script src="{{asset('assets/backend')}}/js/jsgrid/jsgrid.js"></script>
 
 <script>
-    function auto_categories(){
-        let urlData = `{{route('autocategories')}}`;
-        $.ajax({
-         type:'POST',
-         url: `${urlData}`,
-         success:function(data){
-            $("#table_data").html(data.tableData);
-            // console.log(data.tableData);
-         }
-      });
-    }
-    auto_categories();
+    // function auto_categories(){
+    //     let urlData = `{{route('autocategories')}}`;
+    //     $.ajax({
+    //      type:'POST',
+    //      url: `${urlData}`,
+    //      success:function(data){
+    //         $("#table_data").html(data.tableData);
+    //         // console.log(data.tableData);
+    //      }
+    //   });
+    // }
+    // auto_categories();
 
     $('#ajaxForm').on('submit',function(){
         let formUrlData = `{{route('backend.job.categories.store')}}`;
@@ -80,16 +95,16 @@
 
     });
 
-    function categoryDestroy(id){
-        let formUrlData = `{{route('backend.job.categories.destroy')}}`;
+    function jobDestroy(slug){
+        let formUrlData = `{{route('backend.job.destroy')}}`;
         $.ajax({
             type:"POST",
             url: `${formUrlData}`,
             data:{
-                "id": id,
+                "slug": slug,
             },
             success:function(data){
-                auto_categories();
+                // auto_categories();
             }
       });
     }

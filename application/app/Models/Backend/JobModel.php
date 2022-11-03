@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class JobModel extends Model
 {
     use HasFactory;
+
+    protected function getCategory(){
+        return $this->belongsTo(JobCategory::class, 'category');
+    }
 }

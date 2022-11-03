@@ -20,7 +20,8 @@ return new class extends Migration
             $table->string('slug');
             $table->string('category');
             $table->integer('post_by');
-            $table->integer('company_id');
+            $table->string('company_id');
+            $table->string('website');
             $table->string('vacancy');
             $table->string('experience');
             $table->string('employee_type');

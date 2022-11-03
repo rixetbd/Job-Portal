@@ -35,4 +35,6 @@ Route::controller(BackendUserController::class)->group(function(){
 Route::controller(JobController::class)->group(function(){
     Route::get('/backend/jobs', 'index')->name('backend.job.list');
     Route::get('/backend/jobs/create', 'create')->name('backend.job.create');
+    Route::post('/backend/jobs/store', 'store')->name('backend.job.store');
+    Route::post('/backend/jobs/destroy', 'destroy')->name('backend.job.destroy');
 });
