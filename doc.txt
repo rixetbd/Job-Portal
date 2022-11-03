@@ -1,3 +1,22 @@
 Database Name = rixetbdcom_wantjob
 Database User = rixetbdcom_user_wantjob
 Database Password = wantjob@2022
+
+
+'google' => [
+    'client_id' => env('GOOGLE_CLIENT_ID'),
+    'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+    'redirect' => 'http://localhost/SocialAuth/login/google/callback',
+],
+
+'facebook' => [
+    'client_id' => env('FACEBOOK_CLIENT_ID'),
+    'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+    'redirect' => 'http://localhost/SocialAuth/login/facebook/callback',
+],
+
+'github' => [
+    'client_id' => env('GITHUB_CLIENT_ID'),
+    'client_secret' => env('GITHUB_CLIENT_SECRET'),
+    'redirect' => 'http://localhost/github/callback',
+],
