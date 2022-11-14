@@ -19,6 +19,9 @@ Route::controller(SocialAuthController::class)->group(function(){
     Route::get('/login/facebook/callback', 'callback_facebook')->name('callback.facebook');
 });
 
+// Helper Function Research
+
+
 
 Route::controller(JobCategoryController::class)->group(function(){
     Route::get('/backend/job-categories', 'index')->name('backend.job.categories');
